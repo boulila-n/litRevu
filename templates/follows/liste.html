@@ -1,0 +1,24 @@
+
+
+{% extends 'base.html' %}
+{% block title %}<title>Page d'Abonnements</title>{% endblock title %}
+{% block content %}
+
+    {% include 'follows/form.html' %}
+
+    Je suis abonné à :
+    <ul class="subscribes-container">
+    {% for f in owner.subscribes.all %}
+        <li>
+            <span>{{ f.id }} - {{ f.username }} </span><a class="delete" href="{% url 'confirm_delete_followers' f.id %}"></a>
+        </li>
+    {% endfor %}
+    </ul>
+
+    Mes followers :
+    <ul>
+        {% for f in owner.subscribes.all %}
+            <li>{{ f.id }} - {{ f.username }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
