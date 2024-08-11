@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="{% static 'style.css'%}?">
   <link rel="stylesheet" href="{% static 'login.css'%}?">
   <link rel="stylesheet" href="{% static 'posts.css'%}">
+  <link rel="stylesheet" href="{% static 'flux.css'%}">
+  <link rel="stylesheet" href="{% static 'stars.css'%}">
 </head>
 <body>
     {% block menu %}
@@ -14,10 +16,10 @@
     {% load static %}
     <div class="container_img"><img src="{% static 'logo_litreview.png'%}" width="50"></img></div>
            {% if user.is_authenticated %}
-          <div><a href="{% url 'liste' %}">Liste de mes ticket</a></div>
-           <div><a href="{% url 'manage_subscribe' %}">Abonnements</a></div>
            <div><a href="{% url 'list_flux' %}">Flux</a></div>
-           <div><a href="{% url 'logout' %}">Déconnexion</a></div>
+          <div><a href="{% url 'liste' %}">Posts</a></div>
+           <div><a href="{% url 'manage_subscribe' %}">Abonnements</a></div>
+           <div><a href="{% url 'logout' %}">Se déconnecter</a></div>
           {% endif %}
 </div>
     {% endblock %}

@@ -3,12 +3,6 @@
 {% load i18n %}
 {% block content %}
     <div class="container-posts">
-        <a href="{% url 'add_ticket' %}">
-            <button>Créer un ticket</button>
-        </a>
-        <a href="{% url 'add_review_with_ticket' %}">
-            <button>Créer une critique</button>
-        </a>
         {% for post in post_list %}
             {% if post.content_type == 'TICKET' %}
             <div class="ticket">

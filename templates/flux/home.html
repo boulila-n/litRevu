@@ -2,13 +2,10 @@
 {% block title %}<title>Page flux</title>{% endblock title %}
 {% load i18n %}
 {% block content %}
-  {% load static %}
   <div>
-     <p>Welcome :  {{ user.first_name }} {{ user.last_name }} </p>
       <a href="{% url 'add_ticket' %}"><button>Demander une critique</button></a>
       <a href="{% url 'add_review_with_ticket' %}"><button>Créer une critique</button></a>
     </div>
-    <h2>Fil d'actualité</h2>
     {% for post in post_list %}
         {% if post.content_type == 'TICKET' %}
         <div class="ticket">
