@@ -5,7 +5,8 @@ from .models import Ticket, Review
 
 def is_owner(function):
     """
-        que l'utilisateur connecte peut à accéder au ticket/review? Sinon redirect login
+        que l'utilisateur connecte peut à accéder au
+        ticket/review? Sinon redirect login
     """
     @wraps(function)
     def wrap(request, *args, **kwargs):
