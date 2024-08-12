@@ -6,7 +6,7 @@
         {% for post in post_list %}
             {% if post.content_type == 'TICKET' %}
             <div class="ticket">
-                <div class="title">{{ post.title }} </div>
+                <div class="title">{{ post.title }} - {{ post.user.username }}</div>
                 <div class="content">
                     {% if post.image  %}
                         <img src="/media/{{ post.image }}" width="150" height="150"></img>
@@ -27,7 +27,7 @@
             </div>
             {% elif post.content_type == 'REVIEW' %}
             <div class="review">
-                <div class="title">{{ post.id }} - {{ post.title_review }} </div>
+                <div class="title">{{ post.title_review }} </div>
                 <div class="content">
                     <div>{{ post.description_review }}</div>
                     {% if post.note == "1"  %}
@@ -49,7 +49,7 @@
                         {% endif %}
                     </div>
                     <div class="answer">
-                        {% if  post.user.id != post.ticket.user.id  %}
+                        {% if  post.user.id == user.id  %}
                             <a href="{% url 'update_review_without_ticket' post.id %}"><button>Modifier la critique</button></a>
                             <a href="{% url 'delete_review' post.id %}"><button>Supprimer la critique</button></a>
                         {% else %}
@@ -58,7 +58,7 @@
                         {% endif %}
                     </div>
                     <div class="ticket">
-                        <div class="title">{{ post.ticket.id }} - {{ post.ticket.title }} </div>
+                        <div class="title">{{ post.ticket.title }} - {{ post.user.username }}</div>
                         <div class="content">
                             {% if post.ticket.image  %}
                                 <img src="/media/{{ post.ticket.image }}" width="50" height="50"></img>
@@ -71,11 +71,6 @@
                                 Modifié le {% language 'fr' %}{{ post.ticket.updated_at|date:'d F Y h:i' }}{% endlanguage %}
                                 {% endif %}
                             </div>
-                            {% if  post.user.id == post.ticket.user.id  %}
-                            <div class="answer">
-                                <a href="{% url 'update_ticket' post.ticket.id %}"><button>Modifier le ticket</button></a>
-                            </div>
-                            {% endif %}
 
                         </div>
                     </div>

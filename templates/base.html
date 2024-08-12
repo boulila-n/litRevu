@@ -19,7 +19,7 @@
            <div><a href="{% url 'list_flux' %}">Flux</a></div>
           <div><a href="{% url 'liste' %}">Posts</a></div>
            <div><a href="{% url 'manage_subscribe' %}">Abonnements</a></div>
-           <div><a href="{% url 'logout' %}">Se déconnecter</a></div>
+           <div><a href="{% url 'logout' %}">Se déconnecter   - {{ user.username }}</a></div>
           {% endif %}
 </div>
     {% endblock %}

@@ -17,15 +17,17 @@ class PostsListView(LoginRequiredMixin, ListView):
     """
         Liste de mes posts
     """
-    model = Ticket
+    model = Review
     template_name = 'tickets/liste.html'
 
     def get_context_data(self, **kwargs):
         context = super(PostsListView, self).get_context_data(**kwargs)
         tickets = (Ticket.objects.filter(user=self.request.user.id)
                    .annotate(content_type=Value('TICKET', CharField())))
+        reviews = (Review.objects.filter(user=self.request.user.id)
+                   .annotate(content_type=Value('REVIEW', CharField())))
         posts = sorted(
-            chain(tickets),
+            chain(tickets, reviews),
             key=lambda post: post.created_at,
             reverse=True
         )
