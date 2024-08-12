@@ -90,10 +90,11 @@ class ReviewWithTicket(MultiModelFormView):
         Review form + ticket form + securisation
     """
     form_classes = {
-        'ticket_form' : TicketForm,
-        'review_form' : ReviewForm,
+        'ticket_form': TicketForm,
+        'review_form': ReviewForm,
     }
     template_name = 'tickets/review_with_ticket.html'
+    review_id = 0
 
     @method_decorator(is_owner)
     def dispatch(self, *args, **kwargs):

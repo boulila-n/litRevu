@@ -30,14 +30,14 @@ Phrase de présentation du projet/programme.
 
 # Lancer le programme:
 
-`cd src`<br />
+`cd litRevu`<br />
 `py manage.py runserver` (windows)<br />
 `python3 manage.py runserver` (UNIX)
 
 # Installer et run flake8:
 
 `pip install flake8`<br />
-` flake8 --extend-ignore E203 --exclude .git,__pycache__,env/,*/migrations/,*/settings.py > .\flake8_report.txt`
+`flake8 --exclude .git,__pycache__,env/,*/migrations/,*/settings.py > .\flake8_report.txt`
 
 # Aller sur l'applicaton:
 

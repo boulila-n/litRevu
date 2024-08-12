@@ -6,7 +6,7 @@
         {% for post in post_list %}
             {% if post.content_type == 'TICKET' %}
             <div class="ticket">
-                <div class="title">{{ post.id }} - {{ post.title }} </div>
+                <div class="title">{{ post.title }} </div>
                 <div class="content">
                     {% if post.image  %}
                         <img src="/media/{{ post.image }}" width="150" height="150"></img>
