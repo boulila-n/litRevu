@@ -1,5 +1,5 @@
 # Litrevu
-Phrase de présentation du projet/programme.
+Développer une nouvelle application permet de demander ou publier des critiques de livres ou d’articles.
 
 - [Litrevu](#litrevu)
 - [Cloner le dépôt du projet:](#cloner-le-dépôt-du-projet)
@@ -16,7 +16,7 @@ Phrase de présentation du projet/programme.
   
 # Aller sur le bon répertoire:
 
-`cd openclassroom9`
+`cd LitRevuP9`
 
 # Installer l'environnement virtuel:
 
