@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.db import models
-from django.urls import reverse
 
 from django.contrib.auth import get_user_model
 
@@ -13,7 +12,7 @@ class Ticket(models.Model):
     """
     title = models.CharField(max_length=128)
     description = models.TextField(max_length=2038, blank=True)
-    #faire la liaison d'un ticket avec un user
+    # faire la liaison d'un ticket avec un user
     user: PersonalUser = models.ForeignKey(to=settings.AUTH_USER_MODEL,
                                            on_delete=models.CASCADE)
 
@@ -23,9 +22,6 @@ class Ticket(models.Model):
 
     def __str__(self):
         return f"{self.title}"
-
-    def get_absolute_url(self):
-        return reverse('liste')
 
 
 class Review(models.Model):
@@ -42,7 +38,7 @@ class Review(models.Model):
         ("5", "5"),
     )
     note = models.CharField(max_length=10, choices=choices_note, default="1")
-    #une seul critique pour un seul ticket
+    # une seule critique pour un seul ticket
     ticket: Ticket = models.OneToOneField(to=Ticket,
                                           on_delete=models.CASCADE,
                                           related_name='reviews_rel')
