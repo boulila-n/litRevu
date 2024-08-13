@@ -4,10 +4,14 @@
     {% if form.errors %}
         {{ form.errors }}
     {% endif %}
+{% if message == '' %}
     <form method="post">
         {{ form.as_p }}
         {% csrf_token %}
         <button type="submit" >S’inscrire</button>
     </form>
+{% elif message != '' %}
+<div class="container-posts"><span class="answer"> {{ message }} </span></div>
 <div style="right: 2px;"><a href="{% url 'login' %}"><button>Se connecter</button></a></div>
+{% endif %}
 {% endblock content %}
