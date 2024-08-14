@@ -22,6 +22,7 @@ class PostsListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(PostsListView, self).get_context_data(**kwargs)
+        # envoi requette à la base table:Ticket
         tickets = (Ticket.objects.filter(user=self.request.user.id)
                    .annotate(content_type=Value('TICKET', CharField())))
         reviews = (Review.objects.filter(user=self.request.user.id)

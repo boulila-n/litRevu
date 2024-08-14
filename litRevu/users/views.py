@@ -39,6 +39,7 @@ def signup_page(request):
     if request.method == 'POST':
         form = forms.SignupForm(request.POST)
         if form.is_valid():
+            form.save()
             message = 'inscription terminée avec succées !'
     return render(request, 'signup.html', context={'form': form,
                                                    'message': message})
